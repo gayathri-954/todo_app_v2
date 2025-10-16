@@ -1,0 +1,20 @@
+<h1><%= @todo.title %></h1>
+
+<p>
+  <strong>Description:</strong>
+  <%= @todo.description %>
+</p>
+
+<p>
+  <strong>Status:</strong>
+  <% if @todo.completed %>
+    ✅ Completed
+  <% else %>
+    ❌ Not Completed
+  <% end %>
+</p>
+
+<%= link_to "Edit", edit_todo_path(@todo) %> |
+<%= link_to "Back", todos_path %> |
+<%= link_to "Delete", todo_path(@todo),
+            data: { turbo_method: :delete, turbo_confirm: "Are you sure you want to delete this todo?" } %>
